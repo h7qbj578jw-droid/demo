@@ -9,3 +9,12 @@ jobs:
     steps: 
       - name: first
         run: echo "Hello world"
+      - name: use composite action
+        id: value
+        uses: h7qbj578jw-droid/composite@main
+        with:
+          argument: 222
+      - name: Print output value
+        run: |
+          echo "Result is: ${{ steps.value.outputs.result }}"
+          
